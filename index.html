@@ -45,7 +45,7 @@ input,select,textarea{width:100%;font:inherit;padding:12px;border-radius:12px;bo
 <button class="fab" onclick="openAdd()" aria-label="Tambah">+</button>
 <div class="sh" id="sh" onclick="if(event.target===this)closeSh()"><div id="shc"></div></div>
 <script>
-var B=[{k:"need",n:"Keperluan",p:55,c:"#0f766e",e:"🏠"},{k:"fun",n:"Enjoy",p:5,c:"#f59e0b",e:"🎉"},{k:"debt",n:"Langsai Hutang",p:10,c:"#dc2626",e:"💳"},{k:"short",n:"Simpanan Jangka Pendek",p:15,c:"#3b82f6",e:"🐖"},{k:"long",n:"Simpanan Jangka Panjang",p:15,c:"#8b5cf6",e:"🏦"}];
+var B=[{k:"need",n:"Keperluan",p:55,c:"#0f766e",e:"🏠"},{k:"fun",n:"Enjoy",p:5,c:"#f59e0b",e:"🎉"},{k:"debt",n:"Langsai Hutang",p:10,c:"#dc2626",e:"💳"},{k:"short",n:"Simpanan Jangka Pendek",p:15,c:"#3b82f6",e:"😎"},{k:"long",n:"Simpanan Jangka Panjang",p:15,c:"#8b5cf6",e:"🏦"}];
 var CH={need:["Kereta","Makan","Minyak","Bil","Sewa","Tol"],fun:["Kopi","Tengok wayang","Beli-belah","Game"],debt:["Bayar hutang","Kad kredit","PTPTN"],short:["Tabung kecemasan","Cuti"],long:["ASB","Tabung Haji","Pelaburan"]};
 var S={pct:{},m:{},theme:"auto"},cur=new Date().toISOString().slice(0,7);
 try{var r=localStorage.getItem("duitHisyam");if(r)S=JSON.parse(r)}catch(e){}
