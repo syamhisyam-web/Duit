@@ -8,98 +8,174 @@
 <meta name="theme-color" content="#0f766e">
 <title>Duit Hisyam</title>
 <style>
-:root{--bg:#f1f5f4;--card:#fff;--tx:#10201e;--mu:#64748b;--ln:#e2e8e6;--pr:#0f766e;--bad:#dc2626;--ok:#16a34a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1413;--card:#14211f;--tx:#e8f1ef;--mu:#8fa5a1;--ln:#243532;--pr:#2dd4bf}}
-:root[data-theme="dark"]{--bg:#0b1413;--card:#14211f;--tx:#e8f1ef;--mu:#8fa5a1;--ln:#243532;--pr:#2dd4bf}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--bg:#eef3f2;--card:#fff;--tx:#10201e;--mu:#64748b;--ln:#e2e8e6;--pr:#0f766e;--bad:#dc2626;--ok:#16a34a;--sh:0 4px 16px rgba(15,60,55,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1413;--card:#14211f;--tx:#e8f1ef;--mu:#8fa5a1;--ln:#243532;--pr:#2dd4bf;--sh:none}}
+:root[data-theme="dark"]{--bg:#0b1413;--card:#14211f;--tx:#e8f1ef;--mu:#8fa5a1;--ln:#243532;--pr:#2dd4bf;--sh:none}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding-bottom:96px}
-.w{max-width:520px;margin:auto;padding:14px}
-h1{font-size:22px;margin:4px 0 2px}.mu{color:var(--mu);font-size:13px}
-.card{background:var(--card);border:1px solid var(--ln);border-radius:18px;padding:14px;margin:12px 0}
-.hero{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;border:0}
-.hero .mu{color:#d1faf4}.big{font-size:34px;font-weight:700;margin:2px 0}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding-bottom:150px}
+.w{max-width:520px;margin:auto;padding:14px;animation:fi .3s}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+h1{font-size:22px;margin:4px 0 2px}h2{font-size:16px;margin:0 0 10px}.mu{color:var(--mu);font-size:13px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:15px;margin:12px 0;box-shadow:var(--sh)}
+.hero{background:linear-gradient(135deg,#0f766e,#0d9488 55%,#34d399);color:#fff;border:0;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero .mu{color:#d1faf4}.big{font-size:34px;font-weight:800;margin:2px 0}
 .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-button{font:inherit;border:0;border-radius:12px;padding:10px 14px;background:var(--pr);color:#fff;font-weight:600}
+button{font:inherit;border:0;border-radius:13px;padding:10px 14px;background:var(--pr);color:#fff;font-weight:600}
 button.g{background:transparent;color:var(--pr);border:1px solid var(--ln)}
-.hero button{background:rgba(255,255,255,.2)}
-.bar{height:9px;border-radius:9px;background:var(--ln);overflow:hidden;margin:8px 0 4px}
-.bar i{display:block;height:100%;border-radius:9px}
+.hero button{background:rgba(255,255,255,.22)}
+.bar{height:10px;border-radius:9px;background:var(--ln);overflow:hidden;margin:8px 0 4px}
+.bar i{display:block;height:100%;border-radius:9px;transition:width .5s}
 .b{font-weight:600}.neg{color:var(--bad)}.pos{color:var(--ok)}
-.fab{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);width:60px;height:60px;border-radius:30px;font-size:30px;padding:0;box-shadow:0 6px 18px rgba(0,0,0,.3)}
-.sh{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;z-index:20}
-.sh.on{display:flex}
-.sh>div{background:var(--card);width:100%;max-width:520px;margin:auto;border-radius:22px 22px 0 0;padding:18px 16px calc(env(safe-area-inset-bottom,0px) + 18px);max-height:88vh;overflow:auto}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.st{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:10px;text-align:center;box-shadow:var(--sh)}
+.st b{display:block;font-size:15px;margin-top:2px}
+.fab{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 84px);width:60px;height:60px;border-radius:30px;font-size:30px;padding:0;box-shadow:0 6px 18px rgba(0,0,0,.3);z-index:5}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;background:var(--card);border-top:1px solid var(--ln);padding:8px 6px calc(env(safe-area-inset-bottom,0px) + 8px);z-index:6}
+.tabs button{background:none;color:var(--mu);padding:4px 10px;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.tabs button span{font-size:22px}.tabs button.on{color:var(--pr)}
+.sh,.pp{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:20}
+.sh{align-items:flex-end}.sh.on{display:flex}
+.sh>div{background:var(--card);width:100%;max-width:520px;margin:auto;border-radius:24px 24px 0 0;padding:18px 16px calc(env(safe-area-inset-bottom,0px) + 18px);max-height:88vh;overflow:auto}
+.pp.on{display:flex;align-items:center;justify-content:center;z-index:30}
+.pc{background:var(--card);border-radius:24px;padding:22px;width:84%;max-width:340px;text-align:center;animation:pp .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pp{from{transform:scale(.6);opacity:0}}
+.pe{font-size:56px}.pm{font-size:18px;font-weight:700;margin:8px 0 14px}
 input,select,textarea{width:100%;font:inherit;padding:12px;border-radius:12px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);margin:6px 0}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
 .chip{padding:7px 11px;border-radius:20px;background:var(--bg);border:1px solid var(--ln);font-size:13px;color:var(--tx);font-weight:500}
 .tx{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--ln)}
-.tx:last-child{border:0}
-.dot{width:10px;height:10px;border-radius:5px;display:inline-block;margin-right:6px}
-.donut{width:120px;height:120px;border-radius:50%;margin:auto;position:relative}
-.donut:after{content:"";position:absolute;inset:24px;background:var(--card);border-radius:50%}
-.tip{font-size:14px;line-height:1.45}
-.seg{display:flex;gap:6px}.seg button{flex:1}
+.tx:last-child{border:0}.dot{width:10px;height:10px;border-radius:5px;display:inline-block;margin-right:6px}
+.donut{width:110px;height:110px;border-radius:50%;position:relative;flex:none}
+.donut:after{content:"";position:absolute;inset:22px;background:var(--card);border-radius:50%}
+.ch{display:flex;align-items:flex-end;gap:8px;height:90px;margin-top:8px}
+.ch div{flex:1;text-align:center;font-size:11px;color:var(--mu);display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.ch i{display:block;background:linear-gradient(var(--pr),#34d399);border-radius:6px 6px 2px 2px;min-height:3px}
+.adv{display:flex;gap:12px;align-items:flex-start}.adv .e{font-size:28px}.adv p{margin:2px 0 0;font-size:14px;line-height:1.45;color:var(--mu)}
+.pill{font-size:12px;padding:3px 9px;border-radius:20px;background:var(--bg);font-weight:600}
+.seg{display:flex;gap:6px}.seg button{flex:1}.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 14px);transform:translateX(-50%);background:#111;color:#fff;padding:10px 16px;border-radius:14px;font-size:14px;z-index:40;display:none;max-width:90%;text-align:center}.toast.on{display:block}
 </style></head><body>
 <div class="w" id="app"></div>
-<button class="fab" onclick="openAdd()" aria-label="Tambah">+</button>
+<button class="fab" id="fab" onclick="openAdd()" aria-label="Tambah">+</button>
+<div class="tabs" id="tabs"></div>
 <div class="sh" id="sh" onclick="if(event.target===this)closeSh()"><div id="shc"></div></div>
+<div class="pp" id="pop" onclick="if(event.target===this)this.classList.remove('on')"></div>
+<div class="toast" id="toast"></div>
 <script>
-var B=[{k:"need",n:"Keperluan",p:55,c:"#0f766e",e:"🏠"},{k:"fun",n:"Enjoy",p:5,c:"#f59e0b",e:"🎉"},{k:"debt",n:"Langsai Hutang",p:10,c:"#dc2626",e:"💳"},{k:"short",n:"Simpanan Jangka Pendek",p:15,c:"#3b82f6",e:"😎"},{k:"long",n:"Simpanan Jangka Panjang",p:15,c:"#8b5cf6",e:"🏦"}];
-var CH={need:["Kereta","Makan","Minyak","Bil","Sewa","Tol"],fun:["Kopi","Tengok wayang","Beli-belah","Game"],debt:["Bayar hutang","Kad kredit","PTPTN"],short:["Tabung kecemasan","Cuti"],long:["ASB","Tabung Haji","Pelaburan"]};
-var S={pct:{},m:{},theme:"auto"},cur=new Date().toISOString().slice(0,7);
-try{var r=localStorage.getItem("duitHisyam");if(r)S=JSON.parse(r)}catch(e){}
-S.pct=S.pct||{};S.m=S.m||{};B.forEach(function(b){if(S.pct[b.k]==null)S.pct[b.k]=b.p});
+var B=[{k:"need",n:"Keperluan",p:55,c:"#0f766e",e:"🏠"},{k:"fun",n:"Enjoy",p:5,c:"#f59e0b",e:"🎉"},{k:"debt",n:"Langsai Hutang",p:10,c:"#dc2626",e:"💳"},{k:"short",n:"Simpanan Jangka Pendek",p:15,c:"#3b82f6",e:"🐖"},{k:"long",n:"Simpanan Jangka Panjang",p:15,c:"#8b5cf6",e:"🏦"}];
+var CH={need:["Kereta","Makan","Minyak","Bil","Sewa","Tol"],fun:["Kopi","Wayang","Beli-belah","Game"],debt:["Bayar hutang","Kad kredit","PTPTN"],short:["Tabung kecemasan","Cuti"],long:["ASB","Tabung Haji","Pelaburan"]};
+var J={over:["Boss Syam, kawal sikit belanja tu!","Dompet dah menangis Syam… kesiankan dia","Baki dah merah! Minggu ni makan maggi je 🍜"],fun:["Seronok boleh, jangan sampai dompet pengsan Syam","Duit enjoy kena jaga, bukan enjoy je 😂"],big:["Eh Syam! Besar gila belanja tu. Betul perlu ke?","Dompet: “Aku rasa kena langgar lori…”"],save:["Mantap Boss Syam! Gaya jutawan masa depan","Simpan lagi! Nanti anak cucu panggil Tan Sri Syam"],debt:["Hutang berkurang, hati pun lapang!","Satu langkah lagi bebas hutang, Syam!"],bill:["Bil dah settle! Tenang hati","Sah bayar! Syarikat telco pun senyum"],low:["Baki bakul ni makin nipis Syam… ngam-ngam tu"],late:["Bil lewat tu Syam! Jangan sampai kena potong line"],sal:["Alhamdulillah gaji masuk! Jangan terus ‘checkout’ Syam"]};
+var JE={over:"😤",fun:"😎",big:"😱",save:"💪",debt:"🕊️",bill:"✅",low:"😬",late:"📅",sal:"🤑"};
+var S={pct:{},m:{},theme:"auto",bills:[],goals:[],vault:{t:0,h:[]}};
+function lz(n){return n<10?"0"+n:""+n}
+function ymd(d){return d.getFullYear()+"-"+lz(d.getMonth()+1)+"-"+lz(d.getDate())}
+var NOW=new Date(),TD=ymd(NOW),CM=TD.slice(0,7),cur=CM,tab="home",ab="need";
+try{var r=localStorage.getItem("duitHisyam");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+B.forEach(b=>{if(S.pct[b.k]==null)S.pct[b.k]=b.p});
 function save(){try{localStorage.setItem("duitHisyam",JSON.stringify(S))}catch(e){}}
-function M(){if(!S.m[cur])S.m[cur]={sal:0,tx:[]};return S.m[cur]}
+function M(){if(!S.m[cur])S.m[cur]={sal:0,tx:[],paid:{}};if(!S.m[cur].paid)S.m[cur].paid={};return S.m[cur]}
 function rm(n){return "RM "+(Math.round(n*100)/100).toLocaleString("ms-MY",{minimumFractionDigits:2,maximumFractionDigits:2})}
-function $(id){return document.getElementById(id)}
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
 function applyTheme(){if(S.theme==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",S.theme)}
-function mlabel(){var d=new Date(cur+"-01");return d.toLocaleDateString("ms-MY",{month:"long",year:"numeric"})}
-function shiftM(n){var d=new Date(cur+"-01");d.setMonth(d.getMonth()+n);cur=d.toISOString().slice(0,7);render()}
-function calc(){var m=M(),o={};B.forEach(function(b){var a=m.sal*S.pct[b.k]/100,u=0;m.tx.forEach(function(t){if(t.b===b.k)u+=t.a});o[b.k]={a:a,u:u,r:a-u}});return o}
+var CY=()=>+cur.slice(0,4),CMo=()=>+cur.slice(5),DIM=()=>new Date(CY(),CMo(),0).getDate();
+function mlabel(){return new Date(CY(),CMo()-1,1).toLocaleDateString("ms-MY",{month:"long",year:"numeric"})}
+function shiftM(n){cur=ymd(new Date(CY(),CMo()-1+n,1)).slice(0,7);render()}
+function calc(m){var o={};B.forEach(b=>{var a=m.sal*S.pct[b.k]/100,u=0;m.tx.forEach(t=>{if(t.b===b.k)u+=t.a});o[b.k]={a:a,u:u,r:a-u}});return o}
+function unpaid(){if(cur<CM)return [];var p=M().paid;return S.bills.filter(x=>!p[x.id])}
+function fc(){var m=M(),c=calc(m),isNow=cur===CM,d=isNow?NOW.getDate():DIM(),dl=isNow?DIM()-d:0,res={tot:0,b:{}},un=unpaid();
+B.forEach(b=>{var h=0;m.tx.forEach(t=>{if(t.b===b.k&&!t.bill)h+=t.a});var pr=c[b.k].u+((b.k==="need"||b.k==="fun")&&isNow?h/d*dl:0);un.forEach(x=>{if(x.b===b.k)pr+=x.a});res.b[b.k]=c[b.k].a-pr;res.tot+=res.b[b.k]});return res}
+function closeMonths(){var add=0,ch=0;Object.keys(S.m).sort().forEach(k=>{var m=S.m[k];if(k<CM&&!m.closed&&m.sal>0){var c=calc(m),l=0;B.forEach(b=>l+=c[b.k].r);m.closed=1;if(l>0){S.vault.t+=l;S.vault.h.push({m:k,a:l});add+=l}ch=1}});if(ch)save();return add}
+var pt;function pop(k,t){clearTimeout(pt);$("pop").innerHTML='<div class="pc"><div class="pe">'+JE[k]+'</div><div class="pm">'+(t||rnd(J[k]))+'</div><button onclick="$(\'pop\').classList.remove(\'on\')">Baik Boss 🫡</button></div>';$("pop").classList.add("on");pt=setTimeout(()=>$("pop").classList.remove("on"),5500)}
 function greet(){var h=new Date().getHours();return (h<12?"Selamat pagi":h<15?"Selamat tengah hari":h<19?"Selamat petang":"Selamat malam")+", Hisyam 👋"}
-function render(){var m=M(),c=calc(),used=0,left=0;B.forEach(function(b){used+=c[b.k].u;left+=c[b.k].r});
-var now=new Date(),isNow=cur===now.toISOString().slice(0,7),dim=new Date(+cur.slice(0,4),+cur.slice(5),0).getDate(),dl=isNow?dim-now.getDate()+1:dim;
-var daily=c.need.r>0?c.need.r/dl:0,tip="";
-if(!m.sal)tip="Masukkan gaji bulan ini untuk mula mengira bajet.";
-else if(c.need.r<0)tip="⚠️ Belanja keperluan sudah melebihi had. Kurangkan belanja lain.";
-else if(c.fun.r<0)tip="⚠️ Duit enjoy sudah habis, tahan dulu Hisyam!";
-else if(isNow)tip="Had belanja keperluan harian: <b>"+rm(daily)+"</b> untuk "+dl+" hari lagi.";
-else tip="Ringkasan bulan lalu.";
-var g=0,conic=[];B.forEach(function(b){var v=used?c[b.k].u/used*100:0;if(v>0){conic.push(b.c+" "+g+"% "+(g+v)+"%");g+=v}});
-var h='<div class="row"><div><h1>'+greet()+'</h1><div class="mu">Urus duit dengan bijak</div></div><button class="g" onclick="openSet()">⚙️</button></div>';
-h+='<div class="row" style="margin-top:10px"><button class="g" onclick="shiftM(-1)">‹</button><b>'+mlabel()+'</b><button class="g" onclick="shiftM(1)">›</button></div>';
-h+='<div class="card hero"><div class="mu">Gaji bulan ini</div><div class="big">'+rm(m.sal)+'</div><div class="row"><span class="mu">Baki keseluruhan: '+rm(left)+'</span><button onclick="openSal()">Ubah gaji</button></div></div>';
-h+='<div class="card tip">'+tip+'</div>';
-B.forEach(function(b){var x=c[b.k],pc=x.a?Math.min(100,x.u/x.a*100):0;
-h+='<div class="card"><div class="row"><div class="b">'+b.e+" "+b.n+' <span class="mu">('+S.pct[b.k]+'%)</span></div><button class="g" style="padding:6px 12px" onclick="openAdd(\''+b.k+'\')">+</button></div><div class="bar"><i style="width:'+pc+'%;background:'+(x.r<0?"var(--bad)":b.c)+'"></i></div><div class="row mu"><span>Peruntukan '+rm(x.a)+'</span><span>Guna '+rm(x.u)+'</span></div><div class="b '+(x.r<0?"neg":"pos")+'" style="margin-top:4px">Baki: '+rm(x.r)+'</div></div>'});
-if(used)h+='<div class="card"><div class="b" style="margin-bottom:10px">Pecahan belanja</div><div class="donut" style="background:conic-gradient('+conic.join(",")+')"></div></div>';
-h+='<div class="card"><div class="b">Sejarah transaksi</div>';
-var tx=m.tx.slice().sort(function(a,b){return b.d<a.d?-1:b.d>a.d?1:b.id-a.id});
-if(!tx.length)h+='<div class="mu" style="padding:10px 0">Belum ada transaksi. Tekan + untuk tambah.</div>';
-tx.forEach(function(t){var b=B.filter(function(x){return x.k===t.b})[0];h+='<div class="tx"><div><div><span class="dot" style="background:'+b.c+'"></span>'+esc(t.n||b.n)+'</div><div class="mu">'+b.n+" · "+t.d+'</div></div><div style="text-align:right"><div class="b neg">-'+rm(t.a)+'</div><button class="g" style="padding:2px 8px;font-size:12px;margin-top:4px" onclick="del('+t.id+')">Padam</button></div></div>'});
-h+="</div>";$("app").innerHTML=h}
-function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function go(t){tab=t;render();window.scrollTo(0,0)}
+function render(){var h=tab==="home"?homeH():tab==="bill"?billH():tab==="goal"?goalH():advH();$("app").innerHTML='<div class="w">'+h+'</div>';
+$("fab").style.display=tab==="home"?"block":"none";
+$("tabs").innerHTML=[["home","🏠","Utama"],["bill","🧾","Bil"],["goal","🎯","Matlamat"],["adv","🤖","Penasihat"]].map(x=>'<button class="'+(tab===x[0]?"on":"")+'" onclick="go(\''+x[0]+'\')"><span>'+x[1]+"</span>"+x[2]+"</button>").join("")}
+function hdr(){return '<div class="row"><div><h1>'+greet()+'</h1><div class="mu">Boss Syam sedang memerhati duit anda 👀</div></div><button class="g" onclick="openSet()">⚙️</button></div><div class="row" style="margin:10px 0"><button class="g" onclick="shiftM(-1)">‹</button><b>'+mlabel()+'</b><button class="g" onclick="shiftM(1)">›</button></div>'}
+function homeH(){var m=M(),c=calc(m),f=fc(),isNow=cur===CM,used=0,left=0;B.forEach(b=>{used+=c[b.k].u;left+=c[b.k].r});
+var d=isNow?NOW.getDate():DIM(),un=unpaid(),unA=un.reduce((s,x)=>s+x.a,0);
+var h=hdr()+'<div class="card hero"><div class="mu">Gaji bulan ini</div><div class="big">'+rm(m.sal)+'</div><div class="row"><div><div class="mu">Baki sekarang: <b>'+rm(left)+'</b></div><div class="mu">📈 Ramalan hujung bulan: <b>'+rm(f.tot)+'</b></div></div><button onclick="openSal()">Ubah gaji</button></div></div>';
+h+='<div class="grid"><div class="st"><span class="mu">Belanja</span><b>'+rm(used)+'</b></div><div class="st"><span class="mu">Purata/hari</span><b>'+rm(used/d)+'</b></div><div class="st"><span class="mu">Bil belum</span><b>'+(un.length?rm(unA):"Tiada")+'</b></div></div>';
+if(!m.sal)h+='<div class="card">Masukkan gaji bulan ini untuk mula mengira bajet.</div>';
+var days=[],mx=1;for(var i=6;i>=0;i--){var dt=new Date(NOW.getFullYear(),NOW.getMonth(),NOW.getDate()-i),k=ymd(dt),s=0;Object.keys(S.m).forEach(q=>S.m[q].tx.forEach(t=>{if(t.d===k)s+=t.a}));days.push([dt.getDay(),s]);mx=Math.max(mx,s)}
+h+='<div class="card"><h2>Belanja 7 hari lepas</h2><div class="ch">'+days.map(x=>'<div><i style="height:'+(x[1]/mx*70)+'px"></i>'+"ASRKJST"[0].replace("A","")+["A","I","S","R","K","J","S"][x[0]]+"</div>").join("")+"</div></div>";
+var g=0,cn=[],lg="";B.forEach(b=>{var v=used?c[b.k].u/used*100:0;if(v>0){cn.push(b.c+" "+g+"% "+(g+v)+"%");g+=v;lg+='<div class="mu"><span class="dot" style="background:'+b.c+'"></span>'+b.n+" "+Math.round(v)+"%</div>"}});
+if(used)h+='<div class="card row" style="gap:16px"><div class="donut" style="background:conic-gradient('+cn.join(",")+')"></div><div style="flex:1"><h2>Pecahan belanja</h2>'+lg+"</div></div>";
+B.forEach(b=>{var x=c[b.k],pc=x.a?Math.min(100,x.u/x.a*100):0,p=f.b[b.k];
+h+='<div class="card"><div class="row"><div class="b">'+b.e+" "+b.n+' <span class="mu">('+S.pct[b.k]+'%)</span></div><button class="g" style="padding:6px 12px" onclick="openAdd(\''+b.k+'\')">+</button></div><div class="bar"><i style="width:'+pc+'%;background:'+(x.r<0?"var(--bad)":b.c)+'"></i></div><div class="row mu"><span>Peruntukan '+rm(x.a)+'</span><span>Guna '+rm(x.u)+'</span></div><div class="row"><span class="b '+(x.r<0?"neg":"pos")+'">Baki: '+rm(x.r)+'</span><span class="pill">📈 '+rm(p)+"</span></div></div>"});
+h+='<div class="card"><h2>Sejarah transaksi</h2>';
+var tx=m.tx.slice().sort((a,b)=>b.d<a.d?-1:b.d>a.d?1:b.id-a.id);
+if(!tx.length)h+='<div class="mu">Belum ada transaksi. Tekan + untuk tambah.</div>';
+tx.forEach(t=>{var b=B.filter(x=>x.k===t.b)[0];h+='<div class="tx"><div><div><span class="dot" style="background:'+b.c+'"></span>'+esc(t.n||b.n)+(t.bill?" 🧾":"")+'</div><div class="mu">'+b.n+" · "+t.d+'</div></div><div style="text-align:right"><div class="b neg">-'+rm(t.a)+'</div><button class="g" style="padding:2px 8px;font-size:12px;margin-top:4px" onclick="del('+t.id+')">Padam</button></div></div>'});
+return h+"</div>"}
+function billH(){var m=M(),dim=DIM(),h='<div class="row"><h1>🧾 Bil &amp; Peringatan</h1><button onclick="openBill()">+ Bil</button></div><div class="row" style="margin:10px 0"><button class="g" onclick="shiftM(-1)">‹</button><b>'+mlabel()+'</b><button class="g" onclick="shiftM(1)">›</button></div><div class="mu">Selagi belum tekan Bayar, ia kekal sebagai peringatan. Bila bayar, baki ditolak automatik.</div>';
+if(!S.bills.length)h+='<div class="card mu">Belum ada bil. Tekan + Bil (contoh: bil telefon).</div>';
+S.bills.slice().sort((a,b)=>a.d-b.d).forEach(x=>{var day=Math.min(x.d,dim),p=m.paid[x.id],df=day-NOW.getDate(),st;
+if(p)st='<span class="pos b">✅ Dibayar</span>';else if(cur!==CM)st='<span class="mu">Belum bayar</span>';else if(df<0)st='<span class="neg b">🔴 Lewat '+(-df)+" hari</span>";else if(df===0)st='<span class="b" style="color:#f59e0b">🟠 Hari ini!</span>';else if(df<=3)st='<span class="b" style="color:#f59e0b">🟡 '+df+" hari lagi</span>";else st='<span class="mu">⏳ Pada haribulan '+day+"</span>";
+h+='<div class="card"><div class="row"><div><div class="b">'+esc(x.n)+'</div><div class="mu">Setiap bulan, hari ke-'+x.d+" · "+B.filter(b=>b.k===x.b)[0].n+'</div></div><div class="b">'+rm(x.a)+'</div></div><div class="row" style="margin-top:10px">'+st+'<div>'+(p?"":'<button onclick="payBill('+x.id+')">Bayar</button> ')+'<button class="g" onclick="delBill('+x.id+')">🗑</button></div></div></div>'});
+return h}
+function goalH(){var h='<h1>🎯 Simpanan &amp; Matlamat</h1><div class="card hero"><div class="mu">🏦 Simpanan Keseluruhan</div><div class="big">'+rm(S.vault.t)+'</div><div class="mu">Baki setiap hujung bulan masuk sini secara automatik.</div>';
+S.vault.h.slice(-3).reverse().forEach(x=>h+='<div class="mu">+ '+rm(x.a)+" dari "+x.m+"</div>");
+h+='</div><div class="row"><h2 style="margin:0">Barang yang nak dibeli</h2><button onclick="openGoal()">+ Matlamat</button></div>';
+if(!S.goals.length)h+='<div class="card mu">Contoh: Telefon baharu RM3000 sebelum Disember. Saya kira berapa perlu kumpul sehari dan sebulan.</div>';
+S.goals.forEach(g=>{var l=Math.max(0,g.t-g.s),dy=Math.ceil((new Date(g.dt)-new Date(TD))/864e5),pc=Math.min(100,g.s/g.t*100);
+h+='<div class="card"><div class="row"><div class="b">'+esc(g.n)+'</div><div class="b">'+rm(g.t)+'</div></div><div class="bar"><i style="width:'+pc+'%;background:#8b5cf6"></i></div><div class="mu">Terkumpul '+rm(g.s)+" · Kurang "+rm(l)+"</div>";
+if(l<=0)h+='<div class="pos b">🎉 Sasaran tercapai!</div>';else if(dy<=0)h+='<div class="neg b">Tarikh sudah lepas. Kemas kini tarikh.</div>';else h+='<div class="grid" style="margin-top:8px"><div class="st"><span class="mu">Sehari</span><b>'+rm(l/dy)+'</b></div><div class="st"><span class="mu">Sebulan</span><b>'+rm(l/Math.max(1,dy/30.44))+'</b></div><div class="st"><span class="mu">Baki hari</span><b>'+dy+"</b></div></div>";
+h+='<div class="row" style="margin-top:10px"><button onclick="addGoal('+g.id+')">+ Simpan</button><button class="g" onclick="delGoal('+g.id+')">🗑</button></div></div>'});
+return h}
+function adv(){var m=M(),c=calc(m),f=fc(),A=[],d=cur===CM?NOW.getDate():DIM(),dim=DIM(),tx=m.tx;
+if(!m.sal)return [["👋","Mula dulu Syam","Masukkan gaji bulan ini di tab Utama supaya saya boleh analisis."]];
+if(!tx.length)A.push(["🧐","Belum ada data","Tambah beberapa perbelanjaan, nanti saya cari corak anda."]);
+var np=c.need.a?c.need.u/c.need.a:0,dp=d/dim;
+if(tx.length)A.push(np>dp+.1?["🚨","Belanja keperluan laju","Dah guna "+Math.round(np*100)+"% padahal baru "+Math.round(dp*100)+"% bulan. Perlahankan sikit."]:["👍","Kadar belanja terkawal","Keperluan "+Math.round(np*100)+"% setakat hari ke-"+d+". Teruskan!"]);
+if(tx.length){var g={},wd=[0,0,0,0,0,0,0];tx.forEach(t=>{var k=(t.n||"Lain-lain").toLowerCase();g[k]=(g[k]||0)+t.a;wd[new Date(t.d+"T00:00:00").getDay()]+=t.a});
+var tk=Object.keys(g).sort((a,b)=>g[b]-g[a])[0],wi=wd.indexOf(Math.max.apply(null,wd));
+A.push(["📊","Paling banyak: "+esc(tk),"Total "+rm(g[tk])+" bulan ini ("+Math.round(g[tk]/tx.reduce((s,t)=>s+t.a,0)*100)+"% belanja)."]);
+A.push(["📅","Hari paling boros: "+["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"][wi],"Hari ini corak belanja anda paling tinggi. Rancang lebih awal."])}
+if(c.fun.r<0)A.push(["🎢","Duit enjoy terlebih","Lebih "+rm(-c.fun.r)+". Tahan dulu sampai bulan depan."]);
+var ub=unpaid().filter(x=>cur===CM&&Math.min(x.d,dim)-NOW.getDate()<=7);
+if(ub.length)A.push(["🔔","Bil menanti ("+ub.length+")",ub.map(x=>esc(x.n)).join(", ")+" perlu dibayar dalam 7 hari. Jumlah "+rm(ub.reduce((s,x)=>s+x.a,0))+"."]);
+A.push(f.tot>=0?["📈","Ramalan hujung bulan: "+rm(f.tot),"Anda dijangka ada lebihan. Cadangan: masuk "+rm(f.tot*.6)+" ke simpanan jangka panjang."]:["⚠️","Ramalan defisit "+rm(-f.tot),"Dengan corak sekarang duit tak cukup. Kurangkan belanja harian."]);
+var gm=S.goals.map(g=>{var l=Math.max(0,g.t-g.s),dy=Math.ceil((new Date(g.dt)-new Date(TD))/864e5);return dy>0?{n:g.n,v:l/Math.max(1,dy/30.44)}:null}).filter(Boolean).sort((a,b)=>b.v-a.v)[0];
+if(gm)A.push(["🎯","Matlamat: "+esc(gm.n),"Perlu "+rm(gm.v)+" sebulan. "+(f.tot>=gm.v?"Lebihan anda cukup, boleh!":"Lebihan ramalan belum cukup, tambah masa atau kurangkan belanja.")]);
+return A}
+function advH(){var h='<h1>🤖 Penasihat Boss Syam</h1><div class="mu">Analisis pintar dari corak belanja anda (dikira dalam telefon, tanpa internet).</div>';
+adv().forEach(a=>h+='<div class="card adv"><div class="e">'+a[0]+'</div><div><div class="b">'+a[1]+"</div><p>"+a[2]+"</p></div></div>");
+return h+'<div class="card"><h2>Boleh ke saya belanja?</h2><input id="cs" type="number" inputmode="decimal" placeholder="Harga barang (RM)"><button style="width:100%" onclick="canSpend()">Tanya Boss Syam</button><div id="cr" class="b" style="margin-top:10px"></div></div>'}
+function canSpend(){var a=parseFloat($("cs").value);if(!a)return;var c=calc(M()),f=fc(),r=c.fun.r,t;
+if(a<=r)t="✅ Boleh! Guna duit Enjoy, tinggal "+rm(r-a);else if(a<=f.tot)t="🤔 Duit Enjoy tak cukup, tapi ramalan hujung bulan "+rm(f.tot)+". Kalau beli, simpanan akan berkurang.";else t="🚫 Jangan Syam! Ramalan baki hujung bulan hanya "+rm(f.tot);$("cr").textContent=t}
 function sh(h){$("shc").innerHTML=h;$("sh").classList.add("on")}
 function closeSh(){$("sh").classList.remove("on")}
-function openSal(){sh('<h1>Gaji '+mlabel()+'</h1><input id="sv" type="number" inputmode="decimal" placeholder="Contoh: 3500" value="'+(M().sal||"")+'"><div class="mu">Pecahan 55 / 5 / 10 / 15 / 15 dikira secara automatik.</div><br><button style="width:100%" onclick="saveSal()">Simpan</button>');setTimeout(function(){$("sv").focus()},50)}
-function saveSal(){M().sal=Math.max(0,parseFloat($("sv").value)||0);save();closeSh();render()}
-var ab="need";
-function openAdd(k){ab=k||ab;var o="";B.forEach(function(b){o+='<option value="'+b.k+'"'+(b.k===ab?" selected":"")+'>'+b.e+" "+b.n+"</option>"});
-sh('<h1>Tambah perbelanjaan</h1><input id="av" type="number" inputmode="decimal" placeholder="Jumlah (RM)"><select id="ab" onchange="chips()">'+o+'</select><div class="chips" id="ch"></div><input id="an" placeholder="Nota (contoh: Bayar kereta)"><input id="ad" type="date" value="'+new Date().toISOString().slice(0,10)+'"><br><button style="width:100%" onclick="addTx()">Simpan &amp; potong baki</button>');chips();setTimeout(function(){$("av").focus()},50)}
-function chips(){var k=$("ab").value,h="";CH[k].forEach(function(t){h+='<button class="chip" onclick="$(\'an\').value=this.textContent">'+t+"</button>"});$("ch").innerHTML=h}
+var CB,tt;function ask(msg,fn){CB=fn;sh('<h1>'+msg+'</h1><div class="seg" style="margin-top:14px"><button class="g" onclick="closeSh()">Batal</button><button style="background:var(--bad)" onclick="closeSh();CB()">Ya, padam</button></div>')}
+function toast(t){var e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){e.classList.remove("on")},2600)}
+function openSal(){sh('<h1>Gaji '+mlabel()+'</h1><input id="sv" type="number" inputmode="decimal" placeholder="Contoh: 3500" value="'+(M().sal||"")+'"><br><button style="width:100%" onclick="saveSal()">Simpan</button>')}
+function saveSal(){var m=M(),o=m.sal;m.sal=Math.max(0,parseFloat($("sv").value)||0);save();closeSh();render();if(!o&&m.sal)pop("sal")}
+function openAdd(k){ab=k||ab;var o=B.map(b=>'<option value="'+b.k+'"'+(b.k===ab?" selected":"")+'>'+b.e+" "+b.n+"</option>").join("");
+sh('<h1>Tambah perbelanjaan</h1><input id="av" type="number" inputmode="decimal" placeholder="Jumlah (RM)"><select id="ab" onchange="chips()">'+o+'</select><div class="chips" id="ch"></div><input id="an" placeholder="Nota (contoh: Bayar kereta)"><input id="ad" type="date" value="'+TD+'"><br><button style="width:100%" onclick="addTx()">Simpan &amp; potong baki</button>');chips()}
+function chips(){$("ch").innerHTML=CH[$("ab").value].map(t=>'<button class="chip" onclick="$(\'an\').value=this.textContent">'+t+"</button>").join("")}
 function addTx(){var a=parseFloat($("av").value);if(!a||a<=0){$("av").focus();return}
-var d=$("ad").value||new Date().toISOString().slice(0,10),mo=d.slice(0,7);ab=$("ab").value;
-if(!S.m[mo])S.m[mo]={sal:0,tx:[]};S.m[mo].tx.push({id:Date.now(),b:ab,a:a,n:$("an").value.trim(),d:d});cur=mo;save();closeSh();render()}
-function del(id){if(!confirm("Padam transaksi ini?"))return;var m=M();m.tx=m.tx.filter(function(t){return t.id!==id});save();render()}
-function openSet(){var h='<h1>Tetapan</h1><div class="mu">Ubah peratus (jumlah mesti 100%)</div>';
-B.forEach(function(b){h+='<div class="row"><span>'+b.e+" "+b.n+'</span><input style="width:80px" type="number" inputmode="decimal" id="p_'+b.k+'" value="'+S.pct[b.k]+'"></div>'});
-h+='<button style="width:100%;margin:8px 0" onclick="savePct()">Simpan peratus</button><div class="b" style="margin-top:12px">Tema</div><div class="seg"><button class="g" onclick="setTheme(\'auto\')">Auto</button><button class="g" onclick="setTheme(\'light\')">Cerah</button><button class="g" onclick="setTheme(\'dark\')">Gelap</button></div><div class="b" style="margin-top:14px">Sandaran data</div><div class="mu">Salin teks ini untuk simpan, atau tampal teks lama untuk pulihkan.</div><textarea id="bk" rows="4">'+esc(JSON.stringify(S))+'</textarea><div class="seg"><button class="g" onclick="$(\'bk\').select();document.execCommand(\'copy\')">Salin</button><button class="g" onclick="restore()">Pulihkan</button></div><button class="g" style="width:100%;margin-top:12px;color:var(--bad)" onclick="wipe()">Padam semua data</button>';sh(h)}
-function savePct(){var t=0,n={};B.forEach(function(b){n[b.k]=parseFloat($("p_"+b.k).value)||0;t+=n[b.k]});if(Math.round(t)!==100){alert("Jumlah mesti 100%. Sekarang: "+t+"%");return}S.pct=n;save();closeSh();render()}
+var d=$("ad").value||TD,mo=d.slice(0,7);ab=$("ab").value;if(!S.m[mo])S.m[mo]={sal:0,tx:[],paid:{}};S.m[mo].tx.push({id:Date.now(),b:ab,a:a,n:$("an").value.trim(),d:d});cur=mo;save();closeSh();render();
+var m=M(),x=calc(m)[ab];
+if(m.sal&&a>=m.sal*.15)pop("big");else if(x.r<0)pop("over");else if(ab==="fun")pop("fun");else if(ab==="debt")pop("debt");else if(ab==="short"||ab==="long")pop("save");else if(x.a&&x.r/x.a<.2)pop("low")}
+function del(id){ask("Padam transaksi ini?",function(){var m=M();m.tx=m.tx.filter(t=>t.id!==id);Object.keys(m.paid).forEach(k=>{if(m.paid[k]===id)delete m.paid[k]});save();render()})}
+function openBill(){sh('<h1>Bil baharu</h1><input id="bn" placeholder="Nama bil (contoh: Bil telefon)"><input id="ba" type="number" inputmode="decimal" placeholder="Jumlah (RM)"><input id="bd" type="number" inputmode="numeric" placeholder="Bayar pada haribulan (1-31)"><select id="bb">'+B.map(b=>'<option value="'+b.k+'">'+b.e+" "+b.n+"</option>").join("")+'</select><br><button style="width:100%" onclick="saveBill()">Simpan bil</button>')}
+function saveBill(){var n=$("bn").value.trim(),a=parseFloat($("ba").value),d=parseInt($("bd").value);if(!n||!a||!(d>=1&&d<=31)){toast("Isi nama, jumlah dan haribulan (1-31)");return}S.bills.push({id:Date.now(),n:n,a:a,d:d,b:$("bb").value});save();closeSh();render()}
+function payBill(id){var x=S.bills.filter(b=>b.id===id)[0],m=M(),tid=Date.now();m.tx.push({id:tid,b:x.b,a:x.a,n:x.n,d:cur===CM?TD:cur+"-"+lz(Math.min(x.d,DIM())),bill:id});m.paid[id]=tid;save();render();pop("bill")}
+function delBill(id){ask("Padam bil ini?",function(){S.bills=S.bills.filter(b=>b.id!==id);save();render()})}
+function openGoal(){sh('<h1>Matlamat baharu</h1><input id="gn" placeholder="Nak beli apa? (contoh: iPhone)"><input id="gt" type="number" inputmode="decimal" placeholder="Harga sasaran (RM)"><input id="gs" type="number" inputmode="decimal" placeholder="Sudah terkumpul (RM, pilihan)"><div class="mu">Nak dapat sebelum:</div><input id="gd" type="date"><br><button style="width:100%" onclick="saveGoal()">Simpan &amp; kira</button>')}
+function saveGoal(){var n=$("gn").value.trim(),t=parseFloat($("gt").value),dt=$("gd").value;if(!n||!t||!dt){toast("Isi nama, harga dan tarikh");return}S.goals.push({id:Date.now(),n:n,t:t,s:parseFloat($("gs").value)||0,dt:dt});save();closeSh();render()}
+function addGoal(id){sh('<h1>Tambah simpanan</h1><input id="gv" type="number" inputmode="decimal" placeholder="Jumlah (RM)"><br><button style="width:100%" onclick="doGoal('+id+')">Simpan</button>')}
+function doGoal(id){var v=parseFloat($("gv").value);if(!v||v<=0){toast("Masukkan jumlah dahulu");return}S.goals.forEach(g=>{if(g.id===id)g.s+=v});save();closeSh();render();pop("save")}
+function delGoal(id){ask("Padam matlamat ini?",function(){S.goals=S.goals.filter(g=>g.id!==id);save();render()})}
+function openSet(){var h='<h1>Tetapan</h1><div class="mu">Ubah peratus (jumlah mesti 100%)</div>'+B.map(b=>'<div class="row"><span>'+b.e+" "+b.n+'</span><input style="width:80px" type="number" inputmode="decimal" id="p_'+b.k+'" value="'+S.pct[b.k]+'"></div>').join("");
+sh(h+'<button style="width:100%;margin:8px 0" onclick="savePct()">Simpan peratus</button><div class="b" style="margin-top:12px">Tema</div><div class="seg"><button class="g" onclick="setTheme(\'auto\')">Auto</button><button class="g" onclick="setTheme(\'light\')">Cerah</button><button class="g" onclick="setTheme(\'dark\')">Gelap</button></div><div class="b" style="margin-top:14px">Sandaran data</div><div class="mu">Salin teks ini untuk simpan, atau tampal teks lama untuk pulihkan.</div><textarea id="bk" rows="4">'+esc(JSON.stringify(S))+'</textarea><div class="seg"><button class="g" onclick="$(\'bk\').select();document.execCommand(\'copy\')">Salin</button><button class="g" onclick="restore()">Pulihkan</button></div><button class="g" style="width:100%;margin-top:12px;color:var(--bad)" onclick="wipe()">Padam semua data</button>')}
+function savePct(){var t=0,n={};B.forEach(b=>{n[b.k]=parseFloat($("p_"+b.k).value)||0;t+=n[b.k]});if(Math.round(t)!==100){toast("Jumlah mesti 100%. Sekarang: "+t+"%");return}S.pct=n;save();closeSh();render()}
 function setTheme(t){S.theme=t;save();applyTheme()}
-function restore(){try{var o=JSON.parse($("bk").value);if(!o.m)throw 0;S=o;save();closeSh();render()}catch(e){alert("Teks sandaran tidak sah.")}}
-function wipe(){if(confirm("Padam SEMUA data? Tidak boleh diundur.")){S={pct:{},m:{},theme:"auto"};B.forEach(function(b){S.pct[b.k]=b.p});save();closeSh();render()}}
+function restore(){try{var o=JSON.parse($("bk").value);if(!o.m)throw 0;S=Object.assign({pct:{},m:{},theme:"auto",bills:[],goals:[],vault:{t:0,h:[]}},o);save();closeSh();render()}catch(e){toast("Teks sandaran tidak sah")}}
+function wipe(){ask("Padam SEMUA data? Tidak boleh diundur.",function(){S={pct:{},m:{},theme:"auto",bills:[],goals:[],vault:{t:0,h:[]}};B.forEach(b=>S.pct[b.k]=b.p);save();render()})}
 (function(){try{var c=document.createElement("canvas");c.width=c.height=180;var x=c.getContext("2d"),g=x.createLinearGradient(0,0,180,180);g.addColorStop(0,"#0f766e");g.addColorStop(1,"#2dd4bf");x.fillStyle=g;x.fillRect(0,0,180,180);x.fillStyle="#fbbf24";x.beginPath();x.arc(90,90,58,0,7);x.fill();x.fillStyle="#fff";x.font="bold 78px -apple-system,Arial";x.textAlign="center";x.textBaseline="middle";x.fillText("H",90,96);var u=c.toDataURL("image/png"),l=document.createElement("link");l.rel="apple-touch-icon";l.href=u;document.head.appendChild(l);var f=document.createElement("link");f.rel="icon";f.href=u;document.head.appendChild(f)}catch(e){}})();
-applyTheme();render();
+applyTheme();var rolled=closeMonths();render();
+setTimeout(()=>{if(rolled>0)pop("sal","Baki bulan lepas "+rm(rolled)+" sudah masuk Simpanan Keseluruhan!");else if(unpaid().some(x=>Math.min(x.d,DIM())<NOW.getDate()))pop("late")},700);
 </script></body></html>
